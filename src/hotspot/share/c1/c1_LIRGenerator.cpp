@@ -3425,7 +3425,7 @@ void LIRGenerator::increment_event_counter_impl(CodeEmitInfo* info,
   assert(level > CompLevel_simple, "Shouldn't be here");
 
   int offset = -1;
-  LIR_Opr counter_holder = NULL;
+  LIR_Opr counter_holder;
   if (level == CompLevel_limited_profile) {
     MethodCounters* counters_adr = method->ensure_method_counters();
     if (counters_adr == NULL) {
