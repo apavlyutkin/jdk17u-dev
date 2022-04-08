@@ -1,0 +1,23 @@
+install: true
+language: cpp
+compiler: clang
+arch:
+- amd64
+- arm64
+- ppc64le
+- s390x
+os: linux
+dist: focal
+sudo: true
+addons:
+  apt:
+    packages:
+    - clang-13
+jobs:
+  include:
+  - stage: build
+    script: '
+      java --version
+      clang --version
+      sh ./configure --with-toolchain-type=clang
+      make images'
